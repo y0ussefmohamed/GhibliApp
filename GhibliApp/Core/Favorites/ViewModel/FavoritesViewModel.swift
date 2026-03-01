@@ -17,10 +17,6 @@ class FavoritesViewModel {
         self.service = service
     }
     
-    func favoriteList(from films: [Film]) -> [Film] {
-        return films.filter { favoriteIDs.contains($0.id) }
-    }
-    
     func isFavorite(_ id: String) -> Bool {
         favoriteIDs.contains(id)
     }

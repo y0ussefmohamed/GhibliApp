@@ -10,7 +10,7 @@ import Observation
 
 @Observable
 class FilmsViewModel {
-    var state: downloadingState<[Film]>
+    var state: LoadingState<[Film]>
     private let service: GhibliService
     
     init(service: GhibliService) {
@@ -29,5 +29,12 @@ class FilmsViewModel {
             state = .failure(APIError.networkError(error))
             throw APIError.networkError(error)
         }
+    }
+    
+    // MARK: - Used in Previews
+    static var example: FilmsViewModel {
+        let vm = FilmsViewModel(service: MockGhibliService())
+        vm.state = .success([Film.example, Film.exampleFavorite])
+        return vm
     }
 }

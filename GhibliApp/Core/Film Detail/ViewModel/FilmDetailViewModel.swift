@@ -10,7 +10,7 @@ import Observation
 
 @Observable
 class FilmDetailViewModel {
-    var state: downloadingState<[Person]> = .idle
+    var state: LoadingState<[Person]> = .idle
     let dataService: GhibliService
     
     init(service: GhibliService) {
@@ -24,7 +24,9 @@ class FilmDetailViewModel {
         var loadedPeople: [Person] = []
 
         do { /// fetch in parallel
-            try await withThrowingTaskGroup(of: Person.self) { group in
+            try await withThrowingTaskGroup(of: Person.self) { [weak self] group in
+                guard let self else { return }
+                
                 for personURL in film.people {
                     group.addTask {
                         let person = try await self.dataService.fetchPerson(from: personURL)

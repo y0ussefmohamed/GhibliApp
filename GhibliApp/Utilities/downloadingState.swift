@@ -5,8 +5,9 @@
 //  Created by Youssef Mohamed on 01/03/2026.
 //
 
+import Foundation
 
-enum downloadingState<T: Equatable> {    
+enum LoadingState<T: Equatable> {
     case idle
     case loading
     case success(T)

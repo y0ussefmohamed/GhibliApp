@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var filmsViewModel = FilmsViewModel(service: ProductionGhibliService())
-    
-    /// present here because of the dependency injection
-    @State private var favoritesViewModel = FavoritesViewModel(service: ProductionFavoritesStorage())
+    let filmsViewModel: FilmsViewModel
+    let favoritesViewModel: FavoritesViewModel
     
     
     var body: some View {
@@ -43,5 +41,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    HomeView(filmsViewModel: FilmsViewModel.example, favoritesViewModel: FavoritesViewModel.example)
 }

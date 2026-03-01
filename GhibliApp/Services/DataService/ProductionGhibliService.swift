@@ -20,7 +20,11 @@ final class ProductionGhibliService: GhibliService {
     }
     
     func searchFilm(for searchTerm: String) async throws -> [Film] {
-        return []
+        let allFilms = try await fetchFilms()
+                
+        return allFilms.filter { film in
+            film.title.localizedStandardContains(searchTerm)
+        }
     }
     
     // MARK: - Private Functions
