@@ -7,7 +7,22 @@
 
 import Foundation
 
-enum LoadingState<T: Equatable> {
+enum LoadingState<T: Equatable>: Equatable {
+    static func == (lhs: LoadingState<T>, rhs: LoadingState<T>) -> Bool {
+        switch (lhs, rhs) {
+        case (.idle, .idle):
+            return true
+        case (.loading, .loading):
+            return true
+        case (.success(let lhsValue), .success(let rhsValue)):
+            return lhsValue == rhsValue
+        case (.failure(let lhsError), .failure(let rhsError)):
+            return lhsError.localizedDescription == rhsError.localizedDescription
+        default:
+            return false
+        }
+    }
+    
     case idle
     case loading
     case success(T)

@@ -5,7 +5,6 @@
 //  Created by Youssef Mohamed on 01/03/2026.
 //
 
-
 import Foundation
 
 protocol GhibliService: Sendable {

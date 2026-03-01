@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TabBarRootView: View {
+    /// Dependency Inject them from this root view
     @State private var filmsViewModel = FilmsViewModel(service: ProductionGhibliService())
     @State private var favoritesViewModel = FavoritesViewModel(service: ProductionFavoritesStorage())
     
@@ -22,7 +23,7 @@ struct TabBarRootView: View {
             }
             
             Tab("Settings", systemImage: "gear") {
-                //SettingsScreen()
+                SettingsView()
             }
             
             Tab(role: .search) {
@@ -35,6 +36,7 @@ struct TabBarRootView: View {
                 favoritesViewModel.loadFavorites()
             }
         }
+        .setAppearanceTheme()
     }
 }
 
