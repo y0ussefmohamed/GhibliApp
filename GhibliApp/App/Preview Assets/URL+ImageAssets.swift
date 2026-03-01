@@ -19,9 +19,7 @@ extension URL {
         
         let url = cacheDirectory.appendingPathComponent("\(name).\(`extension`)")
         
-        guard !fileManager.fileExists(atPath: url.path) else {
-            return url
-        }
+        guard !fileManager.fileExists(atPath: url.path) else { return url }
         
         guard let image = UIImage(named: name),
               let data = image.jpegData(compressionQuality: 1) else {

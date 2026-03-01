@@ -7,26 +7,6 @@
 
 import Foundation
 
-enum APIError: LocalizedError {
-    case invalideURL
-    case invalidResponse
-    case decoding(Error)
-    case networkError(Error)
-    
-    var errorDescription: String? {
-        switch self {
-            case .invalideURL:
-                return "The URL is invalid"
-            case .invalidResponse:
-                return "Invalid response from server"
-            case .decoding(let error):
-                return "Failed to decode response: \(error.localizedDescription)"
-            case .networkError(let error):
-               return "Network error: \(error.localizedDescription)"
-        }
-    }
-}
-
 final class ProductionGhibliService: GhibliService {
     func fetchFilms() async throws -> [Film] {
         let url = Constants.shared.url
@@ -40,11 +20,10 @@ final class ProductionGhibliService: GhibliService {
     }
     
     func searchFilm(for searchTerm: String) async throws -> [Film] {
-        // TODO
         return []
     }
     
-    
+    // MARK: - Private Functions
     private func fetch<T: Codable>(from url: String, type: T.Type) async throws -> T {
         guard let url = URL(string: url) else { throw APIError.invalideURL }
         

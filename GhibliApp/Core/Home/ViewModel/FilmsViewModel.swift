@@ -10,18 +10,24 @@ import Observation
 
 @Observable
 class FilmsViewModel {
-    var films: [Film] = [] // instead of using @Published
+    var state: downloadingState<[Film]>
     private let service: GhibliService
     
     init(service: GhibliService) {
+        state = .idle
         self.service = service
     }
     
-    func fetch() async {
+    func fetch() async throws {
+        guard !state.isLoading || state.error != nil else { return } /// if is loading or there is an error don't fetch again
+        
         do {
-            films = try await service.fetchFilms()
+            state = .loading
+            let films = try await service.fetchFilms()
+            state = .success(films)
         } catch {
-            print(error)
+            state = .failure(APIError.networkError(error))
+            throw APIError.networkError(error)
         }
     }
 }
