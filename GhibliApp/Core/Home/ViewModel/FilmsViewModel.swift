@@ -11,7 +11,7 @@ import Observation
 @Observable
 class FilmsViewModel {
     var state: LoadingState<[Film]>
-    private let service: GhibliService
+    let service: GhibliService
     
     init(service: GhibliService) {
         state = .idle
@@ -21,8 +21,9 @@ class FilmsViewModel {
     func fetch() async throws {
         guard !state.isLoading || state.error != nil else { return } /// if is loading or there is an error don't fetch again
         
+        state = .loading
+
         do {
-            state = .loading
             let films = try await service.fetchFilms()
             state = .success(films)
         } catch {

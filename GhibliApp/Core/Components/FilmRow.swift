@@ -14,7 +14,7 @@ struct FilmRow: View {
     
     var body: some View {
         HStack(alignment: .top) {
-            FilmImageView(urlPath: film.image)
+            AsyncImageView(urlPath: film.image)
                 .frame(width: 100, height: 150)
             
             VStack(alignment: .leading) {

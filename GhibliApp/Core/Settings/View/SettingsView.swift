@@ -11,16 +11,16 @@ import SwiftUI
 struct SettingsView: View {
     @State private var showAlert: Bool = false
     
-    @AppStorage(UserDefaultsKeys.appearanceTheme)
+    @AppStorage(AppUserDefaultsKeys.appearanceTheme)
     private var appearanceTheme: AppearanceTheme = .system
     
-    @AppStorage(UserDefaultsKeys.username)
+    @AppStorage(AppUserDefaultsKeys.username)
     private var username: String = ""
     
-    @AppStorage(UserDefaultsKeys.itemsPerPage)
+    @AppStorage(AppUserDefaultsKeys.itemsPerPage)
     private var itemsPerPage: Int = 20
     
-    @AppStorage(UserDefaultsKeys.notificationsEnabled)
+    @AppStorage(AppUserDefaultsKeys.notificationsEnabled)
     private var notificationsEnabled: Bool = true
 
     var body: some View {

@@ -17,7 +17,7 @@ extension View {
 
 struct AppearanceThemeViewModifier: ViewModifier {
     
-    @AppStorage(UserDefaultsKeys.appearanceTheme) private var appearanceTheme: AppearanceTheme = .system
+    @AppStorage(AppUserDefaultsKeys.appearanceTheme) private var appearanceTheme: AppearanceTheme = .system
     
     func body(content: Content) -> some View {
         content

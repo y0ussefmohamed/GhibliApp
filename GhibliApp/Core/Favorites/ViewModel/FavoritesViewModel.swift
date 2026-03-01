@@ -22,7 +22,7 @@ class FavoritesViewModel {
     }
     
     func loadFavorites() {
-        self.favoriteIDs = service.load()
+        self.favoriteIDs = service.loadFavorites()
     }
     
     func toggleFavorite(for id: String) {

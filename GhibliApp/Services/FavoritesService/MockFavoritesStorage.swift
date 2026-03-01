@@ -9,7 +9,7 @@ import Foundation
 
 struct MockFavoritesStorage: FavoritesStorage {
     
-    func load() -> Set<String> {
+    func loadFavorites() -> Set<String> {
         ["2baf70d1-42bb-4437-b551-e5fed5a87abe"]
     }
     

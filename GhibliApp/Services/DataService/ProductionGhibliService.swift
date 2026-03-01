@@ -19,7 +19,7 @@ final class ProductionGhibliService: GhibliService {
         return try await fetch(from: URLString, type: Person.self)
     }
     
-    func searchFilm(for searchTerm: String) async throws -> [Film] {
+    func searchFilm(using searchTerm: String) async throws -> [Film] {
         let allFilms = try await fetchFilms()
                 
         return allFilms.filter { film in
@@ -27,7 +27,7 @@ final class ProductionGhibliService: GhibliService {
         }
     }
     
-    // MARK: - Private Functions
+    // MARK: - Private Generic Function
     private func fetch<T: Codable>(from url: String, type: T.Type) async throws -> T {
         guard let url = URL(string: url) else { throw APIError.invalideURL }
         

@@ -19,7 +19,7 @@ struct FilmDetailView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 7) {
                 
-                FilmImageView(urlPath: film.bannerImage)
+                AsyncImageView(urlPath: film.bannerImage)
                     .frame(height: 300)
                     .containerRelativeFrame(.horizontal)
                 

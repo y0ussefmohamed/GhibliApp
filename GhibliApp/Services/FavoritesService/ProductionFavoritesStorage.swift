@@ -11,7 +11,7 @@ import Foundation
 struct ProductionFavoritesStorage: FavoritesStorage {
     private let favoritesKey = "GhibliExplorer.FavoriteFilms.IDs"
     
-    func load() -> Set<String> {
+    func loadFavorites() -> Set<String> {
         let favoriteIDsArray = UserDefaults.standard.stringArray(forKey: favoritesKey)
         return Set(favoriteIDsArray ?? [])
     }

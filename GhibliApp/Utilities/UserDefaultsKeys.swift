@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum UserDefaultsKeys {
+enum AppUserDefaultsKeys {
     static let appearanceTheme = "appearanceTheme"
     static let username = "username"
     static let itemsPerPage = "itemsPerPage"

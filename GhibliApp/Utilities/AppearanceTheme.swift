@@ -14,4 +14,3 @@ enum AppearanceTheme: String, Identifiable, CaseIterable {
     case dark
     var id: Self { return self }
 }
-

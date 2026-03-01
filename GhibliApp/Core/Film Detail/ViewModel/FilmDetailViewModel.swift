@@ -10,10 +10,11 @@ import Observation
 
 @Observable
 class FilmDetailViewModel {
-    var state: LoadingState<[Person]> = .idle
+    var state: LoadingState<[Person]>
     let dataService: GhibliService
     
     init(service: GhibliService) {
+        state = .idle
         self.dataService = service
     }
     

@@ -30,7 +30,7 @@ class SearchViewModel {
         guard !Task.isCancelled else { return }
         
         do {
-            let searchResult = try await dataService.searchFilm(for: query)
+            let searchResult = try await dataService.searchFilm(using: query)
             state = .success(searchResult)
         } catch {
             state = .failure(error)

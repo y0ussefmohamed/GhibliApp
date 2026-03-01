@@ -1,5 +1,5 @@
 //
-//  FilmImageView.swift
+//  AsyncImageView.swift
 //  GhibliApp
 //
 //  Created by Youssef Mohamed on 01/03/2026.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FilmImageView: View {
+struct AsyncImageView: View {
     
     let url: URL?
     
@@ -44,7 +44,7 @@ struct FilmImageView: View {
 }
 
 #Preview("poster image") {
-     FilmImageView(url: URL.convertAssetImage(named: "posterImage"))
+    AsyncImageView(url: URL.convertAssetImage(named: "posterImage"))
         .frame(height: 150)
 }
 
@@ -53,7 +53,7 @@ struct FilmImageView: View {
     let name = "bannerImage"
     let url = URL.convertAssetImage(named: name)
     
-    FilmImageView(url: url)
+    AsyncImageView(url: url)
         .frame(height: 300)
 }
 

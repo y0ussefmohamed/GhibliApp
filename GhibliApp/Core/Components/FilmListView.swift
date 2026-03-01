@@ -26,7 +26,6 @@ struct FilmListView: View {
 
 
 #Preview {
-
     @State @Previewable var filmsViewModel = FilmsViewModel(service: MockGhibliService())
     @State @Previewable var favorites = FavoritesViewModel(service: MockFavoritesStorage())
     

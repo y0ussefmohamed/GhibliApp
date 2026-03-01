@@ -9,6 +9,6 @@
 import Foundation
 
 protocol FavoritesStorage {
-    func load() -> Set<String>
+    func loadFavorites() -> Set<String>
     func save(favoriteIDs: Set<String>)
 }
